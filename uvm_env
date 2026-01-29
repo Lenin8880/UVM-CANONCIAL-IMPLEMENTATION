@@ -1,0 +1,11 @@
+class generic_env extends uvm_env;
+  generic_agent agent;
+  uvm_scoreboard sb;
+
+  `uvm_component_utils(generic_env)
+
+  function void build_phase(uvm_phase phase);
+    agent = generic_agent::type_id::create("agent", this);
+    sb    = uvm_scoreboard::type_id::create("sb", this);
+  endfunction
+endclass
